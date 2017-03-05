@@ -6,13 +6,13 @@ const CLEAR_BASKET = 'r3pi/basket/CLEAR';
 
 const initialState = fromJS({
   products: [
-    { name: 'orange', price: 0.30, label: 'Orange' },
-    { name: 'banana', price: 0.15, label: 'Banana' },
-    { name: 'apple', price: 0.25, label: 'Apple' },
-    { name: 'papaya', price: 0.50, label: 'Papaya' },
+    { name: 'orange', price: 30, label: 'Orange' },
+    { name: 'banana', price: 15, label: 'Banana' },
+    { name: 'apple', price: 25, label: 'Apple' },
+    { name: 'papaya', price: 50, label: 'Papaya' },
   ],
   promotions: [
-    { product: 'papaya', amount: 3, discount: 0.50 },
+    { product: 'papaya', amount: 3, discount: 50 },
   ],
   selection: {
     items: {},

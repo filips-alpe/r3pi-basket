@@ -92,14 +92,14 @@ describe('basket duck', () => {
 
     assert.equal(
       state.getIn(['selection', 'price']),
-      0.3 + 0.15 + 0.5,
+      30 + 15 + 50,
       'expected price to be properly calculated',
     );
 
     const nextState = reducer(state, removeFromBasket('banana'));
     assert.equal(
       nextState.getIn(['selection', 'price']),
-      0.3 + 0.5,
+      30 + 50,
       'expected price to be updated when a product is removed',
     );
 
