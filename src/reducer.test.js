@@ -9,7 +9,7 @@ describe('rootReducer', () => {
   });
 
   it('reduces the passed state into the next state', () => {
-    const initialState = Map({ foo: 'bar' });
+    const initialState = Map({ basket: {}, messages: {} });
     const newState = rootReducer(initialState, {});
     assert.strictEqual(initialState, newState, 'expected the root reducer to accept the passed state');
   });

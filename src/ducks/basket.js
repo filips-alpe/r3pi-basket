@@ -6,9 +6,9 @@ const CLEAR_BASKET = 'r3pi/basket/CLEAR';
 
 const initialState = fromJS({
   products: [
-    { name: 'apple', price: 0.25, label: 'Apple' },
     { name: 'orange', price: 0.30, label: 'Orange' },
     { name: 'banana', price: 0.15, label: 'Banana' },
+    { name: 'apple', price: 0.25, label: 'Apple' },
     { name: 'papaya', price: 0.50, label: 'Papaya' },
   ],
   promotions: [

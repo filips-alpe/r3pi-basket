@@ -1,7 +1,8 @@
-import { Map } from 'immutable';
+import { combineReducers } from 'redux-immutable';
+import basket from './ducks/basket';
+import messages from './ducks/messages';
 
-const initialState = Map();
-
-export default function rootReducer(state = initialState, action) {
-  return state;
-}
+export default combineReducers({
+  basket,
+  messages,
+});
