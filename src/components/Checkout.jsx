@@ -1,5 +1,17 @@
 import React, { PropTypes } from 'react';
 
+const style = {
+  padding: '2em',
+};
+
+const buttonStyle = {
+  fontSize: '1.5em',
+  padding: '0.5em',
+  background: 'linear-gradient(to right, #fd5152, #F0CB35)',
+  border: 0,
+  borderRadius: 5,
+};
+
 class CheckoutComponent extends React.PureComponent {
   constructor() {
     super();
@@ -22,7 +34,7 @@ class CheckoutComponent extends React.PureComponent {
 
     return itemsInBasket.map(name => (
       <div key={name}>
-        {items[name]} x {this.getProduct(name).label}
+        <code>{items[name]} x {this.getProduct(name).label}</code>
       </div>
     ));
   }
@@ -31,7 +43,7 @@ class CheckoutComponent extends React.PureComponent {
     const { price } = this.props.selection;
 
     return (
-      <div>
+      <div style={style}>
         <h3>Your basket:</h3>
         {
           price > 0 ?
@@ -42,8 +54,13 @@ class CheckoutComponent extends React.PureComponent {
         }
         {price > 0 &&
           <div>
-            Total: $ {(price / 100).toFixed(2)}
-            <button onClick={this.clearBasket}>
+            <br />
+            <code style={{ textDecoration: 'underline', fontSize: '1.2em' }}>
+              Total: $ {(price / 100).toFixed(2)}
+            </code>
+            <br />
+            <br />
+            <button onClick={this.clearBasket} style={buttonStyle}>
               Clear basket
             </button>
           </div>

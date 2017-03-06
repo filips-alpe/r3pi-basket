@@ -6,8 +6,14 @@ import Checkout from '../components/Checkout';
 import Messages from './Messages';
 import { addToBasket, removeFromBasket, clearBasket } from '../ducks/basket';
 
+const style = {
+  position: 'absolute',
+  height: '100%',
+  width: '100%',
+};
+
 export const AppContainer = props => (
-  <div>
+  <div style={style}>
     <Header />
     <ProductList
       products={props.products}

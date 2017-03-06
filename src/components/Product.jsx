@@ -6,6 +6,53 @@ import papaya from './images/papaya.jpg';
 
 const images = { apple, banana, orange, papaya };
 
+const style = {
+  display: 'inline-block',
+  width: '50%',
+  minWidth: '250px',
+  boxSizing: 'border-box',
+  padding: '1rem',
+  textAlign: 'center',
+};
+
+const imgStyle = {
+  width: '80%',
+  maxWidth: '200px',
+  padding: '0 10%',
+};
+
+const buttonContainerStyle = {
+  display: 'inline-block',
+  width: '80%',
+  minWidth: '200px',
+};
+
+const buttonGradients = {
+  red: 'linear-gradient(to left, #ffd200, #f7971e)',
+  green: 'linear-gradient(to left, #45b649, #dce35b)',
+};
+
+const buttonStyle = color => ({
+  display: 'inline-block',
+  width: '27%',
+  margin: '0 3%',
+  maxWidth: '100px',
+  lineHeight: '1.5em',
+  borderRadius: '5px',
+  border: 0,
+  fontSize: '2em',
+  fontWeight: 'bold',
+  background: buttonGradients[color],
+});
+
+const labelStyle = {
+  display: 'inline-block',
+  width: '33%',
+  textAlign: 'center',
+  verticalAlign: 'middle',
+  fontSize: '1.2em',
+};
+
 class ProductComponent extends React.PureComponent {
   constructor() {
     super();
@@ -24,16 +71,22 @@ class ProductComponent extends React.PureComponent {
   render() {
     const { product, amount } = this.props;
     return (
-      <div>
-        <div key={product.name}>
-          <img src={images[product.name]} alt={product.name} style={{ width: 100 }} />
-          {product.label} - $ {(product.price / 100).toFixed(2)}
-          <button onClick={this.addToBasket}>
-            Add to basket
+      <div key={product.name} style={style}>
+        <img src={images[product.name]} alt={product.name} style={imgStyle} />
+        <div style={buttonContainerStyle}>
+          <button onClick={this.removeFromBasket} style={buttonStyle('red')} disabled={amount === 0}>
+            -
           </button>
-          {amount > 0 && <button onClick={this.removeFromBasket}>
-            Remove
-          </button>}
+          <div style={labelStyle}>
+            <strong>
+              {product.label}
+            </strong>
+            <br />
+            <code>$ {(product.price / 100).toFixed(2)}</code>
+          </div>
+          <button onClick={this.addToBasket} style={buttonStyle('green')}>
+            +
+          </button>
         </div>
       </div>
     );
