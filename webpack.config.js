@@ -10,7 +10,11 @@ module.exports = {
   module: {
     rules: [
       { test: /\.jsx?$/, use: 'babel-loader', exclude: /node_modules/ },
+      { test: /\.jpg$/, use: 'file-loader' },
     ],
+  },
+  resolve: {
+    extensions: ['.js', '.jsx', '.jpg'],
   },
   plugins: [
     new HtmlWebpackPlugin({
